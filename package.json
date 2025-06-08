@@ -1,0 +1,28 @@
+{
+  "name": "nepq-trainer",
+  "version": "1.0.0",
+  "description": "NEPQ Objection Trainer for solar sales reps to master handling objections through daily practice.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "NEPQ",
+    "objection-handling",
+    "solar-sales",
+    "sales-training",
+    "htmx",
+    "express"
+  ],
+  "author": "Nick",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

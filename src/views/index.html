@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NEPQ Objection Trainer</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>🧠 NEPQ Objection Trainer</h1>
+  <p style="font-size: 1.1rem;">Refine your tone, sharpen your reflexes, and master emotional persuasion — one objection at a time.</p>
+
+  <h2>How It Works</h2>
+  <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
+    <li>You’ll be shown a real-world objection from solar sales</li>
+    <li>Try responding out loud before clicking “Reveal Response”</li>
+    <li>Rate yourself: 👍 if your response followed NEPQ, 👎 if not</li>
+    <li>Track your success rate and daily reps</li>
+  </ul>
+
+  <div id="session-summary" 
+       hx-get="/api/stats" 
+       hx-trigger="load"
+       hx-swap="innerHTML"
+       style="margin-top: 2rem;">
+    Loading session stats...
+  </div>
+
+  <div style="margin-top: 1rem;">
+    <button 
+      hx-post="/api/reset" 
+      hx-target="#session-summary" 
+      hx-swap="outerHTML"
+      onclick="return confirm('Are you sure you want to reset your session stats?')"
+    >
+      🔄 Reset Session
+    </button>
+  </div>
+
+  <a href="/flashcards">
+    <button style="margin-top: 2rem;">Start Training →</button>
+  </a>
+
+  <footer style="margin-top: 4rem; font-size: 0.9rem; color: #777;">
+    Built by Nick • Sunrun Sales Tool
+  </footer>
+
+  <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+</body>
+</html>
