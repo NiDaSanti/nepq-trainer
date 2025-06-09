@@ -33,5 +33,10 @@
     "id": 7,
     "objection": "I don't want another payment.",
     "response": "Totally get that. Can I ask, is your concern that this would add to your bills — or that it wouldn’t actually reduce what you’re already paying?"
+  },
+  {
+    "id": 8, 
+    "objection": "I'm not interested.",
+    "response": "Totally fair. Just out of curiosity, when you say you're not interested—is that because you already looked into solar in the past, or because no one's really explained how the newer programs work yet?"
   }
 ]

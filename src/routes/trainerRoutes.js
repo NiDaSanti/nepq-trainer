@@ -146,7 +146,7 @@ router.get('/api/stats', (req, res) => {
   const percent = total > 0 ? Math.round((helpful / total) * 100) : 0
 
   res.send(`
-    <div style="background:#fff; padding:1.5rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.05); max-width:400px; margin:auto;">
+    <div class="summary-container">
       <h3>📊 Session Summary</h3>
       <p>Total Flashcards Practiced: <strong>${total}</strong></p>
       <p>Helpful Responses: <strong>${helpful}</strong></p>
