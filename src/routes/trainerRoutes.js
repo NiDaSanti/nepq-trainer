@@ -26,30 +26,37 @@ router.get('/flashcards', (req, res) => {
 
 // ✅ Route: random flashcard
 router.get('/api/flashcard', (req, res) => {
-  const filePath = path.join(__dirname, '../data/objections.json')
-  const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
-  const random = data[Math.floor(Math.random() * data.length)]
+  const filePath = path.join(__dirname, '../data/objections.json');
+  const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  const random = data[Math.floor(Math.random() * data.length)];
 
   const percent = sessionStats.total > 0
     ? Math.round((sessionStats.helpful / sessionStats.total) * 100)
-    : 0
+    : 0;
 
   res.send(`
-    <div class="card">
-      <h2>Objection:</h2>
-      <p>${random.objection}</p>
+    <div data-objection-id="${random.id}">
+      <h2 class="h1" text">Objection:</h2>
+      <p class="h2">${random.objection}</p>
+
+      <div class="fs-5 text" id="challenge-timer">Get ready...</div>
 
       <button
+        class="btn btn-danger"
+        id="reveal-btn"
+        class="reveal-btn"
         hx-get="/api/response/${random.id}"
         hx-target="#response"
         hx-swap="innerHTML"
       >
         Reveal Response
       </button>
-      <div id="response"></div>
+
+      <div class="d-block fs-4 fst-italic lh-base" id="response"></div>
 
       <div class="rating-buttons" style="margin-top: 1rem;">
         <button
+          class="btn btn-success"
           hx-post="/api/score"
           hx-vals='{"id": ${random.id}, "score": 1}'
           hx-target="#card-container"
@@ -58,6 +65,7 @@ router.get('/api/flashcard', (req, res) => {
           Helpful
         </button>
         <button
+          class="btn btn-secondary"
           hx-post="/api/score"
           hx-vals='{"id": ${random.id}, "score": 0}'
           hx-target="#card-container"
@@ -67,14 +75,15 @@ router.get('/api/flashcard', (req, res) => {
         </button>
       </div>
 
-      <div class="stats" style="margin-top: 1rem;">
+      <div class="stats d-block bg-primary-subtle p-2 text-wrap text-start fs-4 text" style="margin-top: 1rem; margin-bottom: 1rem;">
         Practiced: ${sessionStats.total} cards<br>
         Helpful: ${sessionStats.helpful}<br>
         Success Rate: ${percent}%
       </div>
     </div>
-  `)
-})
+  `);
+});
+
 
 // ✅ Route: just the NEPQ response
 router.get('/api/response/:id', (req, res) => {
@@ -100,11 +109,12 @@ router.post('/api/score', (req, res) => {
     : 0
 
   res.send(`
-    <div class="card">
-      <h2>Objection:</h2>
+    <div data-objection-id="${random.id}">
+      <h2 class="h4">Objection:</h2>
       <p>${random.objection}</p>
 
       <button
+        class="btn btn-danger"
         hx-get="/api/response/${random.id}"
         hx-target="#response"
         hx-swap="innerHTML"
@@ -115,6 +125,7 @@ router.post('/api/score', (req, res) => {
 
       <div class="rating-buttons" style="margin-top: 1rem;">
         <button
+          class="btn btn-success"
           hx-post="/api/score"
           hx-vals='{"id": ${random.id}, "score": 1}'
           hx-target="#card-container"
@@ -123,6 +134,7 @@ router.post('/api/score', (req, res) => {
           Helpful
         </button>
         <button
+          class="btn btn-secondary"
           hx-post="/api/score"
           hx-vals='{"id": ${random.id}, "score": 0}'
           hx-target="#card-container"

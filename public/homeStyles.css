@@ -1,5 +1,5 @@
 /* Base Reset */
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -11,88 +11,90 @@ body {
   color: #222;
   padding: 1rem;
   line-height: 1.5;
-}
+} */
 
 /* Header */
-h1 {
-  font-size: 1.5rem;
+/* h1 {
+  font-size: 1.0rem;
   margin-bottom: 1.5rem;
   text-align: center;
   color: #005c99;
-}
+} */
 
 /* Flashcard container */
-.card {
+/* .card {
   background: white;
   border-radius: 1rem;
   padding: 1.25rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   max-width: 100%;
   margin: 0 auto;
-}
+} */
 
 /* Objection Title */
-.card h2 {
-  font-size: 1.1rem;
+/* .card h2 {
+  font-size: 1.0rem;
   margin-bottom: 0.5rem;
   color: #333;
-}
+} */
 
 /* Objection Text */
-.card p {
+/* .card p {
   font-size: 1rem;
   margin-bottom: 1rem;
-}
+} */
 
 /* Buttons */
-button {
+/* button {
   display: inline-block;
   width: 100%;
   background-color: #005c99;
   color: white;
   padding: 0.75rem;
-  font-size: 1rem;
+  font-size: 0.5rem;
   border: none;
   border-radius: 0.5rem;
   margin-top: 0.5rem;
   cursor: pointer;
   transition: background 0.3s ease;
-}
+} */
 
-button:hover {
+/* button:hover {
   background-color: #004a80;
-}
+} */
 
 /* Rating Buttons Container */
-.rating-buttons {
+/* .rating-buttons {
   display: flex;
   gap: 1rem;
   flex-direction: column;
-}
+} */
 
 /* Stats Text */
-.stats {
+/* .stats {
   margin-top: 1rem;
-  font-size: 0.9rem;
+  font-size: 1.0rem;
   color: #666;
   text-align: center;
-}
+  font-weight: 600;
+} */
 
 /* Reveal Response */
-#response {
+/* #response {
   margin-top: 1rem;
   font-style: italic;
   color: #007a5e;
-}
+  font-weight: bold;
+} */
 
 /* Responsive Enhancements */
-@media (min-width: 600px) {
+/* @media (min-width: 600px) {
   .card {
     width: 100%;
     height: auto; 
-  }
+  } */
 
-  h1 {
+  /* h1 {
     font-size: 3rem;
   }
 
@@ -126,4 +128,4 @@ button:hover {
   #response > p {
     font-size: 2rem;
   }
-}
+} */
