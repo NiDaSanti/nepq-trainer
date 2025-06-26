@@ -35,10 +35,10 @@ router.get('/api/flashcard', (req, res) => {
     : 0;
 
   res.send(`
-    <div data-objection-id="${random.id}">
-      <h2 class="h1" text">Objection:</h2>
-      <p class="h2">${random.objection}</p>
-
+    <div class="border border-0 d-flex flex-column mb-3" data-objection-id="${random.id}">
+      <h2 class="h1 text">Objection:</h2>
+      <p class="h2 text-danger fw-semibold">${random.objection}</p>
+      <p class="text-muted">What would you say to that?</p>
       <div class="fs-5 text" id="challenge-timer">Get ready...</div>
 
       <button
@@ -52,7 +52,7 @@ router.get('/api/flashcard', (req, res) => {
         Reveal Response
       </button>
 
-      <div class="d-block fs-4 fst-italic lh-base" id="response"></div>
+      <div class="d-block fs-4 fst-italic lh-base text-success" id="response"></div>
 
       <div class="rating-buttons" style="margin-top: 1rem;">
         <button
@@ -109,7 +109,7 @@ router.post('/api/score', (req, res) => {
     : 0
 
   res.send(`
-    <div data-objection-id="${random.id}">
+    <div class="border border-0 d-flex flex-column mb-3" data-objection-id="${random.id}">
       <h2 class="h4">Objection:</h2>
       <p>${random.objection}</p>
 
