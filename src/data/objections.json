@@ -1,42 +1,102 @@
 [
   {
     "id": 1,
-    "objection": "I want to think about it.",
-    "response": "Of course, most people want to make sure they’re not rushing. Out of curiosity though, is it the numbers that feel off… or is it more about timing?"
+    "objection": "I'm not interested.",
+    "response": "Totally fair. Just curious, what’s making you feel that way about it right now?"
   },
   {
     "id": 2,
-    "objection": "I need to talk to my spouse.",
-    "response": "That makes sense. Just so I understand, is your spouse usually on board with these types of decisions, or are there specific concerns they usually have?"
+    "objection": "I already have solar.",
+    "response": "Got it. Out of curiosity, how’s that been working out for you so far?"
   },
   {
     "id": 3,
-    "objection": "I already have solar.",
-    "response": "Totally fair. Can I ask — how’s that been working out for you so far? Are you fully covered, or are you still getting bills?"
+    "objection": "I rent this home.",
+    "response": "That makes sense. Are you planning to stay here long-term or looking to buy soon?"
   },
   {
     "id": 4,
-    "objection": "I don’t want to commit to anything today.",
-    "response": "Absolutely, I’m not asking for a yes today. Just so I understand where you’re at, is there something that would need to change in your situation to make this worth exploring?"
+    "objection": "I need to talk to my spouse.",
+    "response": "I respect that. Just wondering, if they were here and felt it made sense, would you be open to it?"
   },
   {
     "id": 5,
-    "objection": "I don’t trust these solar companies.",
-    "response": "That’s actually more common than you think. What’s got you feeling skeptical — is it something you’ve personally experienced, or just what you’ve heard from others?"
+    "objection": "Now’s not a good time.",
+    "response": "No worries. What’s going on that makes this feel like bad timing?"
   },
   {
     "id": 6,
-    "objection": "What’s the catch?",
-    "response": "Fair question. Most people ask that too. What’s making you feel like there might be one?"
+    "objection": "It’s too expensive.",
+    "response": "That’s fair. When you say expensive, do you mean upfront or long-term cost-wise?"
   },
   {
     "id": 7,
-    "objection": "I don't want another payment.",
-    "response": "Totally get that. Can I ask, is your concern that this would add to your bills — or that it wouldn’t actually reduce what you’re already paying?"
+    "objection": "I don’t want panels on my roof.",
+    "response": "Totally fair. What about them makes you feel hesitant—looks or damage concerns?"
   },
   {
-    "id": 8, 
-    "objection": "I'm not interested.",
-    "response": "Totally fair. Just out of curiosity, when you say you're not interested—is that because you already looked into solar in the past, or because no one's really explained how the newer programs work yet?"
+    "id": 8,
+    "objection": "I don’t trust solar companies.",
+    "response": "I hear you. What happened in the past that made you feel that way?"
+  },
+  {
+    "id": 9,
+    "objection": "I need to think about it.",
+    "response": "Of course. Just so I understand, what’s the biggest thing you’re still unsure about?"
+  },
+  {
+    "id": 10,
+    "objection": "I’m moving soon.",
+    "response": "That’s smart to plan ahead. Would lowering the electric bill while you're here still be worth exploring?"
+  },
+  {
+    "id": 11,
+    "objection": "I don’t pay that much for electricity.",
+    "response": "Got it. Is that because you’re super energy-efficient or are you just not home much?"
+  },
+  {
+    "id": 12,
+    "objection": "I’m on CARE or a discount program.",
+    "response": "Makes sense. If the savings still beat that discount, would you want to hear about it?"
+  },
+  {
+    "id": 13,
+    "objection": "I don’t want a lien or loan on my home.",
+    "response": "I hear that. What concerns you most—affecting your credit or resale?"
+  },
+  {
+    "id": 14,
+    "objection": "I’ve heard it doesn’t work at night or in the rain.",
+    "response": "That’s true—it works best in sunlight. But do you know how the backup system actually covers that?"
+  },
+  {
+    "id": 15,
+    "objection": "I’m just renting this house to family.",
+    "response": "Ah I see. Are you responsible for the bill or is that something they manage?"
+  },
+  {
+    "id": 16,
+    "objection": "I don’t want a long contract.",
+    "response": "Totally valid. Just curious, what’s the part that makes long-term feel uncomfortable?"
+  },
+  {
+    "id": 17,
+    "objection": "I’ve had issues with installers before.",
+    "response": "I’m sorry to hear that. What happened exactly?"
+  },
+  {
+    "id": 18,
+    "objection": "I think SCE will fix things eventually.",
+    "response": "You might be right. But while you wait, do you want to stay on the hook for the rising bill?"
+  },
+  {
+    "id": 19,
+    "objection": "My neighbor said it wasn’t worth it.",
+    "response": "That’s fair. Out of curiosity, do you know what kind of setup they got or how it was structured?"
+  },
+  {
+    "id": 20,
+    "objection": "I’m waiting for battery prices to go down.",
+    "response": "Smart. Do you think the utility will lower your bill while you wait though?"
   }
 ]

@@ -1,72 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Solar Objection Trainer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-  <!-- Custom Styles -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
-
-  <!-- HTMX -->
-  <script src="https://unpkg.com/htmx.org@1.9.2"></script>
 </head>
-
-<body class="bg-light d-flex flex-column min-vh-100" style="font-family: 'Inter', sans-serif;">
+<body class="bg-light" style="font-family: 'Inter', sans-serif;">
   <main class="container py-5">
     <div class="text-center mb-4">
       <h1 class="fw-bold">🧠 Solar Objection Trainer</h1>
-      <p class="lead">Refine your tone, sharpen your reflexes, and master emotional persuasion — one objection at a time.</p>
+      <p class="lead">Get sharper at overcoming real objections at the door using emotional, conversational responses that bring the focus back to the homeowner.</p>
     </div>
 
     <section class="mb-4">
-      <h2 class="h4 fw-semibold">How It Works</h2>
+      <h4 class="fw-semibold">📋 How It Works:</h4>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">You’ll be shown a real-world objection from solar sales</li>
-        <li class="list-group-item">Try responding out loud before clicking “Reveal Response”</li>
-        <li class="list-group-item">Rate yourself: 👍 if your response followed NEPQ, 👎 if not</li>
-        <li class="list-group-item">Track your success rate and daily reps</li>
+        <li class="list-group-item">You'll be shown a real objection homeowners give at the door</li>
+        <li class="list-group-item">Your goal is to respond out loud before seeing the recommended reply</li>
+        <li class="list-group-item">Challenge Mode adds a 10-second delay to force fast thinking</li>
+        <li class="list-group-item">You can rate each response as Helpful or Needs Work</li>
       </ul>
     </section>
 
-    <section class="mb-4">
-      <div id="session-summary"
-           class="bg-white border p-3 rounded shadow-sm"
+    <section class="form-check form-switch mb-4">
+      <input class="form-check-input" type="checkbox" id="challengeToggle">
+      <label class="form-check-label" for="challengeToggle">Enable Challenge Mode (10s auto-reveal)</label>
+    </section>
+
+    <div class="mb-4">
+      <div id="session-summary" class="border bg-white rounded p-3 shadow-sm"
            hx-get="/api/stats"
            hx-trigger="load"
            hx-swap="innerHTML">
         Loading session stats...
       </div>
 
-      <div class="mt-3">
-        <button 
-          class="btn btn-outline-danger"
-          hx-post="/api/reset" 
-          hx-target="#session-summary" 
-          hx-swap="outerHTML"
-          onclick="return confirm('Are you sure you want to reset your session stats?')"
-        >
-          🔄 Reset Session
-        </button>
-      </div>
-    </section>
+      <button class="btn btn-outline-danger mt-3" hx-post="/api/reset"
+              hx-target="#session-summary"
+              hx-swap="outerHTML"
+              onclick="return confirm('Reset session stats?')">
+        🔄 Reset Session
+      </button>
+    </div>
 
     <div class="d-grid">
-      <a href="/flashcards" class="btn btn-primary btn-lg fw-bold">Start Training →</a>
+      <a href="/flashcards" class="btn btn-primary btn-lg">Start Training →</a>
     </div>
   </main>
 
-  <footer class="text-center mt-auto py-3 small text-muted">
-    Built by Nick • Sunrun Sales Tool
-  </footer>
+  <footer class="text-center py-3 text-muted small">Built by Nick • Sunrun Sales Tool</footer>
 
-  <!-- Bootstrap Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+  <script>
+    const toggle = document.getElementById('challengeToggle');
+    toggle.addEventListener('change', () => {
+      localStorage.setItem('challengeMode', toggle.checked ? '1' : '0');
+    });
+    window.addEventListener('DOMContentLoaded', () => {
+      toggle.checked = localStorage.getItem('challengeMode') === '1';
+    });
+  </script>
 </body>
 </html>
