@@ -29,3 +29,38 @@ document.addEventListener('htmx:afterSwap', function(evt) {
     }
   }
 });
+
+document.addEventListener('click', function (e) {
+  const btn = e.target.closest('[hx-post="/api/score"]');
+  if (!btn) return;
+
+  e.preventDefault(); // prevent HTMX from submitting
+
+  const data = JSON.parse(btn.getAttribute('hx-vals'));
+  const id = data.id;
+  const score = data.score;
+
+  // Save to localStorage using your method
+  saveScore(id, score);
+
+  // Refresh flashcard manually
+  htmx.ajax('GET', '/api/flashcard', '#card-container');
+});
+
+function updateStatsUI() {
+  const stats = getUserStats(); // from storage.js
+  document.getElementById('totalCount').innerText = stats.total;
+  document.getElementById('helpfulCount').innerText = stats.helpful;
+  document.getElementById('percentCount').innerText = stats.percent + '%';
+}
+
+document.addEventListener('DOMContentLoaded', updateStatsUI);
+
+// Or, if HTMX loads /api/stats dynamically:
+document.body.addEventListener('htmx:afterSwap', (evt) => {
+  if (evt.detail.target.id === 'session-summary') {
+    updateStatsUI();
+  }
+});
+
+
