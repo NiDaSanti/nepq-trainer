@@ -1,3 +1,10 @@
+if (!localStorage.getItem('username')) {
+  const name = prompt("What's your name?");
+  if (name && name.trim().length > 0) {
+    localStorage.setItem('username', name.trim());
+  }
+}
+
 function getOrCreateScoreData() {
   const username = localStorage.getItem('username');
   if (!username) return null;
