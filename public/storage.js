@@ -1,12 +1,39 @@
 import { stringify } from "qs";
 
-if (!localStorage.getItem('username')) {
-  const name = prompt("What's your name?");
-  if (name && name.trim().length > 0) {
-    localStorage.setItem('username', name.trim());
-  }
-}
+document.addEventListener('DOMContentLoaded', () => {
+  // Prompt for name if not set
+  let username = localStorage.getItem('username');
 
+  if (!username || username.trim().length === 0) {
+    username = prompt("What's your name?");
+    if (username && username.trim().length > 0) {
+      localStorage.setItem('username', username.trim());
+    } else {
+      localStorage.setItem('username', 'Guest');
+    }
+  }
+
+  // Update display elements
+  const displayName = localStorage.getItem('username');
+
+  const userDisplay = document.getElementById('user-display');
+  if (userDisplay) {
+    userDisplay.textContent = displayName;
+  }
+
+  const welcomeText = document.getElementById('welcomeMessageContent');
+  if (welcomeText) {
+    welcomeText.textContent = `👋 Welcome back, ${displayName}! Ready to sharpen your skills again?`;
+
+    const modalEl = document.getElementById('welcomeModal');
+    if (modalEl) {
+      const modal = new bootstrap.Modal(modalEl);
+      modal.show();
+    }
+  }
+});
+
+// Score handling
 function getOrCreateScoreData() {
   const username = localStorage.getItem('username');
   if (!username) return null;
@@ -61,5 +88,3 @@ function resetUserScores() {
     localStorage.setItem('trainerScores', JSON.stringify(data));
   }
 }
-
-

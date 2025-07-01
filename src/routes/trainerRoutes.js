@@ -15,51 +15,64 @@ let sessionStats = {
 function renderFlashcard(random, stats) {
   const percent = stats.total > 0
     ? Math.round((stats.helpful / stats.total) * 100)
-    : 0
+    : 0;
 
   return `
-    <div class="border-0 mb-3" data-objection-id="${random.id}">
-      <h2 class="h1 text">Objection:</h2>
-      <p class="h2 text-danger fw-semibold">${random.objection}</p>
-      <p class="text-muted">What would you say to that?</p>
+    <div class="card border-0 shadow-sm p-4 mb-4" data-objection-id="${random.id}">
+      <div class="card-body px-0">
 
-      <div class="fs-5 text text-primary" id="challenge-timer">Get ready...</div>
+        <h5 class="text-uppercase text-muted fw-semibold mb-2">Objection</h5>
+        <p class="h4 text-danger fw-bold">${random.objection}</p>
+        <p class="text-secondary mb-4">What would you say to that?</p>
 
-      <button class="btn btn-danger mt-2"
-              id="reveal-btn"
-              hx-get="/api/response/${random.id}"
-              hx-target="#response"
-              hx-swap="innerHTML">
-        Reveal Response
-      </button>
+        <div id="challenge-timer" class="text-center text-primary fw-semibold fs-5 mb-3">
+          Get ready...
+        </div>
 
-      <div class="d-block fs-4 fst-italic lh-base text-success mt-3" id="response"></div>
+        <div class="d-grid gap-2 d-md-flex justify-content-center mb-4">
+          <button class="btn btn-primary px-4 py-2 fw-semibold"
+                  id="reveal-btn"
+                  hx-get="/api/response/${random.id}"
+                  hx-target="#response"
+                  hx-swap="innerHTML">
+            👀 Reveal Response
+          </button>
+        </div>
 
-      <div class="rating-buttons mt-3">
-        <button class="btn btn-success"
-                hx-post="/api/score"
-                hx-vals='{"id": ${random.id}, "score": 1}'
-                hx-target="#card-container"
-                hx-swap="innerHTML">
-          Helpful
-        </button>
-        <button class="btn btn-secondary needs-work-btn"
-                hx-post="/api/score"
-                hx-vals='{"id": ${random.id}, "score": 0}'
-                hx-target="#card-container"
-                hx-swap="innerHTML">
-          Needs Work
-        </button>
-      </div>
+        <div id="response" class="fs-5 fst-italic text-success text-center mb-4"></div>
 
-      <div class="stats bg-primary-subtle p-2 fs-4 text mt-3 mb-3">
-        Practiced: ${stats.total} cards<br>
-        Helpful: ${stats.helpful}<br>
-        Success Rate: ${percent}%
+        <div class="d-grid gap-2 d-md-flex justify-content-center mb-4">
+          <button class="btn btn-success fw-semibold"
+                  hx-post="/api/score"
+                  hx-vals='{"id": ${random.id}, "score": 1}'
+                  hx-target="#card-container"
+                  hx-swap="innerHTML">
+            ✅ Helpful
+          </button>
+
+          <button class="btn btn-outline-secondary fw-semibold"
+                  hx-post="/api/score"
+                  hx-vals='{"id": ${random.id}, "score": 0}'
+                  hx-target="#card-container"
+                  hx-swap="innerHTML">
+            ⚠️ Needs Work
+          </button>
+        </div>
+
+        <div class="bg-light border rounded p-3 text-center">
+          <div class="fw-semibold text-muted mb-2">Session Stats</div>
+          <div class="fs-6">
+            Practiced: <strong>${stats.total}</strong> cards<br>
+            Helpful: <strong>${stats.helpful}</strong><br>
+            Success Rate: <strong>${percent}%</strong>
+          </div>
+        </div>
+
       </div>
     </div>
-  `
+  `;
 }
+
 
 // Routes
 router.get('/', (req, res) => {
