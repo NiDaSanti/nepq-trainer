@@ -42,10 +42,7 @@
           Loading session stats...
         </div>
 
-        <button class="btn btn-outline-danger mt-3" hx-post="/api/reset"
-                hx-target="#session-summary"
-                hx-swap="outerHTML"
-                onclick="return confirm('Reset session stats?')">
+        <button class="btn btn-outline-danger mt-3" id="reset-btn">
           🔄 Reset Session
         </button>
       </div>

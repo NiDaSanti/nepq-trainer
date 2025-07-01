@@ -63,4 +63,18 @@ document.body.addEventListener('htmx:afterSwap', (evt) => {
   }
 });
 
+document.addEventListener('click', function (e) {
+  if (e.target.matches('#reset-btn')) {
+    e.preventDefault();
+
+    const confirmReset = confirm('Reset your session scores?');
+    if (!confirmReset) return;
+
+    resetUserScores();
+    updateStatsUI(); // Refresh UI immediately
+
+    console.log('LocalStorage after reset:', localStorage.getItem('trainerScores'));
+  }
+})
+
 

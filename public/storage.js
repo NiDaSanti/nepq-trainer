@@ -1,3 +1,5 @@
+import { stringify } from "qs";
+
 if (!localStorage.getItem('username')) {
   const name = prompt("What's your name?");
   if (name && name.trim().length > 0) {
@@ -47,4 +49,17 @@ function getUserStats() {
 
   return { total, helpful, percent };
 }
+
+function resetUserScores() {
+  const username = localStorage.getItem('username');
+  if (!username) return;
+
+  let data = JSON.parse(localStorage.getItem('trainerScores') || '{}');
+
+  if (data[username]) {
+    delete data[username];
+    localStorage.setItem('trainerScores', JSON.stringify(data));
+  }
+}
+
 

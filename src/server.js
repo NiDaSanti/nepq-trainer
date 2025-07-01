@@ -16,5 +16,5 @@ app.use(express.json())
 app.use('/', trainerRoutes)
 
 app.listen(PORT, () => {
-  console.log(`NEPQ Trainer running on http://locahost:${PORT}`)
+  console.log(`NEPQ Trainer running on ${PORT}`)
 })
