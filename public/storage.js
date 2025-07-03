@@ -1,49 +1,48 @@
-import { stringify } from "qs";
+// Utility functions with namespacing
+function getFromStore(key) {
+  return localStorage.getItem(`solarTrainer:${key}`);
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Prompt for name if not set
-  let username = localStorage.getItem('username');
+function setInStore(key, value) {
+  localStorage.setItem(`solarTrainer:${key}`, value);
+}
+
+// Ask for username and save it
+function ensureUsername() {
+  let username = getFromStore('username');
 
   if (!username || username.trim().length === 0) {
     username = prompt("What's your name?");
     if (username && username.trim().length > 0) {
-      localStorage.setItem('username', username.trim());
+      setInStore('username', username.trim());
     } else {
-      localStorage.setItem('username', 'Guest');
+      setInStore('username', 'Guest');
     }
   }
+}
 
-  // Update display elements
-  const displayName = localStorage.getItem('username');
-
+// Show welcome modal if present
+function showWelcomeModal() {
+  const displayName = getFromStore('username');
   const userDisplay = document.getElementById('user-display');
-  if (userDisplay) {
-    userDisplay.textContent = displayName;
-  }
+  if (userDisplay) userDisplay.textContent = displayName;
 
   const welcomeText = document.getElementById('welcomeMessageContent');
-  if (welcomeText) {
+  const modalEl = document.getElementById('welcomeModal');
+  if (welcomeText && modalEl) {
     welcomeText.textContent = `👋 Welcome back, ${displayName}! Ready to sharpen your skills again?`;
-
-    const modalEl = document.getElementById('welcomeModal');
-    if (modalEl) {
-      const modal = new bootstrap.Modal(modalEl);
-      modal.show();
-    }
+    const modal = new bootstrap.Modal(modalEl);
+    modal.show();
   }
-});
+}
 
-// Score handling
+// Score tracking logic
 function getOrCreateScoreData() {
-  const username = localStorage.getItem('username');
+  const username = getFromStore('username');
   if (!username) return null;
 
-  let data = localStorage.getItem('trainerScores');
-  if (!data) {
-    data = {};
-  } else {
-    data = JSON.parse(data);
-  }
+  let data = localStorage.getItem('solarTrainer:trainerScores');
+  data = data ? JSON.parse(data) : {};
 
   if (!data[username]) {
     data[username] = {};
@@ -53,17 +52,17 @@ function getOrCreateScoreData() {
 }
 
 function saveScore(objectionId, score) {
-  const username = localStorage.getItem('username');
+  const username = getFromStore('username');
   if (!username) return;
 
   const data = getOrCreateScoreData();
   data[username][objectionId] = { score };
-  localStorage.setItem('trainerScores', JSON.stringify(data));
+  setInStore('trainerScores', JSON.stringify(data));
 }
 
 function getUserStats() {
-  const username = localStorage.getItem('username');
-  const data = JSON.parse(localStorage.getItem('trainerScores') || '{}');
+  const username = getFromStore('username');
+  const data = JSON.parse(getFromStore('trainerScores') || '{}');
 
   if (!username || !data[username]) {
     return { total: 0, helpful: 0, percent: 0 };
@@ -78,13 +77,27 @@ function getUserStats() {
 }
 
 function resetUserScores() {
-  const username = localStorage.getItem('username');
+  const username = getFromStore('username');
   if (!username) return;
 
-  let data = JSON.parse(localStorage.getItem('trainerScores') || '{}');
-
+  let data = JSON.parse(getFromStore('trainerScores') || '{}');
   if (data[username]) {
     delete data[username];
-    localStorage.setItem('trainerScores', JSON.stringify(data));
+    setInStore('trainerScores', JSON.stringify(data));
   }
 }
+
+// Trigger when DOM loads
+document.addEventListener('DOMContentLoaded', () => {
+  ensureUsername();           // 🔐 Trigger prompt if new user
+  showWelcomeModal();         // 🎉 Show welcome message if modal exists
+
+  // Set challenge mode toggle state
+  const toggle = document.getElementById('challengeToggle');
+  if (toggle) {
+    toggle.checked = getFromStore('challengeMode') === '1';
+    toggle.addEventListener('change', () => {
+      setInStore('challengeMode', toggle.checked ? '1' : '0');
+    });
+  }
+});
