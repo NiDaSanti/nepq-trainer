@@ -2,82 +2,82 @@
   {
     "id": 1,
     "objection": "I'm not interested.",
-    "response": "Totally fair. Just curious, what’s making you feel that way about it right now?"
+    "response": "Totally fair. What’s holding you back the most right now?"
   },
   {
     "id": 2,
     "objection": "I already have solar.",
-    "response": "Got it. Out of curiosity, how’s that been working out for you so far?"
+    "response": "Awesome. Has it fully offset your bill, or are you still paying something?"
   },
   {
     "id": 3,
     "objection": "I rent this home.",
-    "response": "That makes sense. Are you planning to stay here long-term or looking to buy soon?"
+    "response": "Makes sense. Do you cover the utility bill or is it in the landlord’s name?"
   },
   {
     "id": 4,
     "objection": "I need to talk to my spouse.",
-    "response": "I respect that. Just wondering, if they were here and felt it made sense, would you be open to it?"
+    "response": "Totally. If they liked the idea, would you be open to it?"
   },
   {
     "id": 5,
     "objection": "Now’s not a good time.",
-    "response": "No worries. What’s going on that makes this feel like bad timing?"
+    "response": "Understood. Can I ask what makes it feel off right now?"
   },
   {
     "id": 6,
     "objection": "It’s too expensive.",
-    "response": "That’s fair. When you say expensive, do you mean upfront or long-term cost-wise?"
+    "response": "Fair point. Do you mean upfront cost or the long run?"
   },
   {
     "id": 7,
     "objection": "I don’t want panels on my roof.",
-    "response": "Totally fair. What about them makes you feel hesitant—looks or damage concerns?"
+    "response": "Totally get that. Is it the look or worry about damage?"
   },
   {
     "id": 8,
     "objection": "I don’t trust solar companies.",
-    "response": "I hear you. What happened in the past that made you feel that way?"
+    "response": "I hear that a lot. What happened that made you feel that way?"
   },
   {
     "id": 9,
     "objection": "I need to think about it.",
-    "response": "Of course. Just so I understand, what’s the biggest thing you’re still unsure about?"
+    "response": "Of course. What part are you still unsure about?"
   },
   {
     "id": 10,
     "objection": "I’m moving soon.",
-    "response": "That’s smart to plan ahead. Would lowering the electric bill while you're here still be worth exploring?"
+    "response": "Got it. While you’re here, would saving now still be helpful?"
   },
   {
     "id": 11,
     "objection": "I don’t pay that much for electricity.",
-    "response": "Got it. Is that because you’re super energy-efficient or are you just not home much?"
+    "response": "Smart. Is that just efficiency or not home much?"
   },
   {
     "id": 12,
     "objection": "I’m on CARE or a discount program.",
-    "response": "Makes sense. If the savings still beat that discount, would you want to hear about it?"
+    "response": "Makes sense. If this still saved you more, would that matter?"
   },
   {
     "id": 13,
     "objection": "I don’t want a lien or loan on my home.",
-    "response": "I hear that. What concerns you most—affecting your credit or resale?"
+    "response": "Completely fair. Is it credit worries or resale concerns?"
   },
   {
     "id": 14,
     "objection": "I’ve heard it doesn’t work at night or in the rain.",
-    "response": "That’s true—it works best in sunlight. But do you know how the backup system actually covers that?"
+    "response": "That’s true. Do you know how the backup system covers that?"
   },
   {
     "id": 15,
     "objection": "I’m just renting this house to family.",
-    "response": "Ah I see. Are you responsible for the bill or is that something they manage?"
+    "response": "Gotcha. Are you covering the bill or do they?"
   },
   {
     "id": 16,
     "objection": "I don’t want a long contract.",
-    "response": "Totally valid. Just curious, what’s the part that makes long-term feel uncomfortable?"
+    "response": "Totally valid. Is it the length or commitment that’s uncomfortable?"
   },
   {
     "id": 17,
@@ -87,16 +87,16 @@
   {
     "id": 18,
     "objection": "I think SCE will fix things eventually.",
-    "response": "You might be right. But while you wait, do you want to stay on the hook for the rising bill?"
+    "response": "They might. But meanwhile, are you okay paying more while waiting?"
   },
   {
     "id": 19,
     "objection": "My neighbor said it wasn’t worth it.",
-    "response": "That’s fair. Out of curiosity, do you know what kind of setup they got or how it was structured?"
+    "response": "Totally fair. Do you know what kind of setup they had?"
   },
   {
     "id": 20,
     "objection": "I’m waiting for battery prices to go down.",
-    "response": "Smart. Do you think the utility will lower your bill while you wait though?"
+    "response": "Makes sense. But do you think your bill will go down while you wait?"
   }
 ]
